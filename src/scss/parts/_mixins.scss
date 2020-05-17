@@ -1,0 +1,46 @@
+@import 'variables';
+
+/*======== Mixings ========*/
+
+@mixin plh() {
+  &::-webkit-input-placeholder {
+    @content
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content
+  }
+
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    width: 100%;
+  }
+}
+
+
+@mixin responsive($name) {
+  @if $name == desktop {
+    @media ( min-width: 768px ) {
+      @content
+    }
+  }
+
+  @if $name == mobile {
+    @media (max-width: 768px) {
+      @content
+    }
+  }
+}
