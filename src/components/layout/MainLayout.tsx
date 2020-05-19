@@ -1,5 +1,5 @@
 import React, { ReactType } from 'react'
-import { Header } from './Header'
+import { Header } from './Header/Header'
 
 interface MainLayoutProps {
   Content: ReactType

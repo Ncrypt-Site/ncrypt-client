@@ -2,3 +2,19 @@
   max-width: 768px;
   margin: 0 auto;
 }
+
+@for $i from 1 through 30 {
+  $val: $i + 0px;
+  .mb#{$i} {
+      margin-bottom: $val;
+  }
+  .mt#{$i} {
+      margin-top: $val;
+  }
+  .pt#{$i} {
+      padding-top: $val;
+  }
+  .pb#{$i} {
+      padding-bottom: $val;
+  }
+}

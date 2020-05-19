@@ -12,11 +12,20 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.4",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}' --fix"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +50,10 @@
   },
   "devDependencies": {
     "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
