@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
   return (
     <header className="main-header">
       <a href="/">
-        <img src={Logo} alt="" />
+        <img src={Logo} alt="nyCrypt" />
       </a>
 
       <Menu />

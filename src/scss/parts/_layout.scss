@@ -1,20 +1,34 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  color: $black;
+}
+
 .container {
   max-width: 768px;
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+}
+
+svg {
+  width: 1.5rem;
+}
+
+
 @for $i from 1 through 30 {
   $val: $i + 0px;
   .mb#{$i} {
-      margin-bottom: $val;
+    margin-bottom: $val;
   }
   .mt#{$i} {
-      margin-top: $val;
+    margin-top: $val;
   }
   .pt#{$i} {
-      padding-top: $val;
+    padding-top: $val;
   }
   .pb#{$i} {
-      padding-bottom: $val;
+    padding-bottom: $val;
   }
 }

@@ -1,20 +1,24 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import './menu.scss'
 import React from 'react'
 import Icon from '@mdi/react'
 import { mdiGithub } from '@mdi/js'
 
-export const Menu: React.FC = ({}) => {
+export const Menu: React.FC = () => {
   return (
-    <div className="menu">
+    <ul className="menu">
       <li>
         <a href="#">About</a>
       </li>
-      <li>
-        <Icon size={1} path={mdiGithub} color="#333" />
-        <a href="#">Github</a>
+      <li className="github">
+        <a href="#">
+          <Icon size={1} path={mdiGithub} className="icon" color="#333" />
+          Github
+        </a>
       </li>
       <li>
         <a href="#">Hire US</a>
       </li>
-    </div>
+    </ul>
   )
 }

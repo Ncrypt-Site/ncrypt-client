@@ -1,3 +1,14 @@
+@import "variables";
+/**
+* space by initial space
+ */
+@function size($f : 1) {
+  @return $spacing * $f;
+}
+
+@function sp($f : 1) {
+  @return $spacing * $f;
+}
 
 // Add percentage of white to a color
 @function tint($color, $percent){

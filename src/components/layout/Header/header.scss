@@ -1,0 +1,8 @@
+@import '../../../scss/parts/functions';
+
+header.main-header {
+  padding: size(4) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

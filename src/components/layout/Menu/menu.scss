@@ -1,0 +1,34 @@
+@import '../../../scss/parts/variables';
+@import '../../../scss/parts/functions';
+
+.menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+
+  .github a{
+    display: flex;
+    align-items: center;
+  }
+
+  > li {
+    margin-left: 48px;
+
+    > a {
+      color: $black;
+      font-weight: 500;
+
+      &:hover {
+        color: $primary-color;
+
+        path {
+          fill: $primary-color !important;
+        }
+      }
+    }
+
+    .icon {
+      margin-right: size();
+    }
+  }
+}
