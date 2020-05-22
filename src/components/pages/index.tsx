@@ -1,12 +1,16 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { Note } from './Note/Note'
+import { Home } from './Home/Home'
 interface IndexProps {}
 
 export const Index: React.FC<IndexProps> = () => {
   return (
     <main>
-      <Route path="/:id" component={Note} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/:id" component={Note} />
+      </Switch>
     </main>
   )
 }
