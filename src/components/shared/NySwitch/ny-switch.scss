@@ -1,0 +1,64 @@
+@import '../../../scss/parts/reasourses.scss';
+
+.ny-switch {
+  input[type='checkbox'] {
+    display: none;
+    visibility: hidden;
+  }
+
+  /*
+  Switcher Style
+  */
+  .switcher {
+    display: inline-block;
+    border-radius: 100px;
+    width: 48px;
+    height: 24px;
+    background-image: linear-gradient($gray-400 0%, $gray-300 100%);
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      box-sizing: border-box;
+      margin-left: 0;
+      transition: all 0.2s;
+    }
+  }
+
+  .label {
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
+
+  /*
+  When Checked
+   */
+  input[type='checkbox']:checked + .switcher {
+    background-image: linear-gradient($color-green 0%, $color-green-2 100%);
+
+    &:before {
+      left: 100%;
+      margin-left: -22px;
+    }
+  }
+
+  & [disabled]:not([disabled='false']) + .switcher {
+    background: #ccc !important;
+  }
+}
