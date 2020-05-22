@@ -23,4 +23,13 @@
     box-shadow: 0px 3px 8px rgba($primary-color, 0.2),
       0px 0 0 4px rgba($primary-color, 0.2);
   }
+
+  &.loading {
+    color: transparent;
+  }
+
+  .loader {
+    position: absolute;
+    width: 1.5rem;
+  }
 }

@@ -6,6 +6,7 @@ import { NoteOptions } from '../../note/NoteOptions/NoteOptions'
 import { NyButton } from '../../shared/NyButton/NyButton'
 import Icon from '@mdi/react'
 import { mdiLock } from '@mdi/js'
+import Art from '../../../assets/art.svg'
 
 export const Home: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ export const Home: React.FC = () => {
           Encrypt and send
         </NyButton>
       </div>
+      <img src={Art} alt="art" className="art hidden-mobile"/>
     </div>
   )
 }

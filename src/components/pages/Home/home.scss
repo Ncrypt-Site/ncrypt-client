@@ -2,8 +2,29 @@
 
 .page-home {
   padding-bottom: size(6);
+  position: relative;
 
   .btn {
     margin-top: size(6);
+  }
+
+  > .actions {
+    @include responsive(desktop) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .btn {
+    @include responsive(mobile) {
+      width: 100%;
+    }   
+  }
+
+  .art {
+    position: absolute;
+    right: -10%;
+    bottom: 0;
+    z-index: -1;
   }
 }

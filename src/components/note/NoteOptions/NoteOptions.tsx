@@ -8,6 +8,7 @@ interface NoteOptionsProps {}
 export const NoteOptions: React.FC<NoteOptionsProps> = () => {
   return (
     <div className="note-options">
+      <h3 className="title hidden-mobile">Options</h3>
       <form action="">
         <NySwitch label="Self-destructs after reading" />
         <NotePassword
