@@ -1,29 +1,24 @@
 import './note-editor.scss'
-import React, { useRef } from 'react'
+import React, { ChangeEvent } from 'react'
 import mangane from '../../../assets/mangane.svg'
 
 interface NoteEditorProps {
-  onChange?(text: string): void
+  onChange?(e: ChangeEvent<HTMLElement>): void
 }
 
-
-
-export const NoteEditor: React.FC<NoteEditorProps> = () => {
-  const noteElement = useRef<HTMLDivElement>(null)
-
+export const NoteEditor: React.FC<NoteEditorProps> = ({onChange}) => {
   return (
     <div className="main-note">
       <div className="note-container">
         <div className="mangane">
           <img src={mangane} alt="" />
         </div>
-        <div
+        <textarea
           className="note-editor"
-          contentEditable
-          ref={noteElement}
           placeholder="Enter Text"
+          onChange={onChange}
           style={{ height: '400px' }}
-        ></div>
+        ></textarea>
       </div>
     </div>
   )
