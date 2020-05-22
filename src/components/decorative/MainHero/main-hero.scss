@@ -1,0 +1,32 @@
+@import '../../../scss/parts/reasourses.scss';
+
+.main-hero {
+  font-size: 17px;
+  margin-top: 1rem;
+
+  @include responsive(desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-text {
+    font-weight: 200;
+    padding-right: 30px;
+  }
+
+  .reasons {
+    margin-top: 0.5rem;
+    color: $gray-500;
+
+    @include responsive(desktop) {
+      width: percentage(4/12);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+  }
+
+  .reasons-list li {
+    font-weight: bold;
+  }
+}

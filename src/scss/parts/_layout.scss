@@ -3,9 +3,18 @@ body {
   color: $black;
 }
 
+html {
+  font-size: 16px;
+}
+
 .container {
-  max-width: 768px;
-  margin: 0 auto;
+  padding: 0 size(4);
+
+  @include responsive(desktop) {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0;
+  }
 }
 
 a {
@@ -16,19 +25,3 @@ svg {
   width: 1.5rem;
 }
 
-
-@for $i from 1 through 30 {
-  $val: $i + 0px;
-  .mb#{$i} {
-    margin-bottom: $val;
-  }
-  .mt#{$i} {
-    margin-top: $val;
-  }
-  .pt#{$i} {
-    padding-top: $val;
-  }
-  .pb#{$i} {
-    padding-bottom: $val;
-  }
-}

@@ -7,7 +7,7 @@ import { mdiGithub } from '@mdi/js'
 export const Menu: React.FC = () => {
   return (
     <ul className="menu">
-      <li>
+      <li className="hidden-mobile">
         <a href="#">About</a>
       </li>
       <li className="github">
@@ -16,7 +16,7 @@ export const Menu: React.FC = () => {
           Github
         </a>
       </li>
-      <li>
+      <li  className="hidden-mobile">
         <a href="#">Hire US</a>
       </li>
     </ul>

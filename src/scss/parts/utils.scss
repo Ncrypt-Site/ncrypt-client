@@ -1,0 +1,105 @@
+@import 'reasourses';
+
+/**
+  this snippet is handy when u need to use font sizes in em 
+  
+  this will compile to css like this
+  .fz-0-1em {
+    font-size: 0.1em;
+  }
+  and it will loop through to
+  .fz-4em {
+      font-size: 4em;
+  }
+*/
+
+@for $i from 0 through 4 {
+  @for $j from 0 through 9 {
+    @if ($j == 0) {
+      .fz-#{$i} {
+        font-size: #{$i}rem !important;
+      }
+    } @else {
+      .fz-#{$i}-#{$j} {
+        font-size: #{$i}#{'.'}#{$j}rem !important;
+      }
+    }
+  }
+}
+
+/**
+  spacing snippet using rem for spacing
+  
+  this will compile to css like this
+  .mt-1 {
+    margin-top: 0.25rem;
+  }
+  and it will loop through to
+  .mt-20 {
+    margin-top: 5rem
+  }
+*/
+
+@for $i from 0 through 20 {
+  $val: $i * 0.25rem;
+  // using body to make it high priority in css
+  body .mb-#{$i} {
+    margin-bottom: $val;
+  }
+  body .mt-#{$i} {
+    margin-top: $val;
+  }
+  body .pt-#{$i} {
+    padding-top: $val;
+  }
+  body .pb-#{$i} {
+    padding-bottom: $val;
+  }
+
+  body .mh-#{$i} {
+    margin-right: $val;
+    margin-left: $val;
+  }
+
+  body .mv-#{$i} {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+
+  body .ph-#{$i} {
+    padding-right: $val;
+    padding-left: $val;
+  }
+
+  body .mv-#{$i} {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+}
+
+/**
+  Hide an element in mobile or desktop
+*/
+
+.hidden-mobile {
+  @include responsive(mobile) {
+    display: none;
+  }
+}
+
+.hidden-desktop {
+  @include responsive(desktop) {
+    display: none;
+  }
+}
+
+
+/**
+  width classes useful for columns
+*/
+
+@for $i from 1 through 12 {
+  .w-#{$i}-12 {
+    width: percentage($i/12) !important;
+  }
+}
