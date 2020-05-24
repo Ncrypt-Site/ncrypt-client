@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import './home.scss'
 import React, { useState, ChangeEvent } from 'react'
 import { Hero } from '../../decorative/MainHero/MainHero'

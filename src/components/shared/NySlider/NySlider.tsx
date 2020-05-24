@@ -25,7 +25,7 @@ export const NySlider: React.FC<NySliderProps> = ({
   }
 
   return (
-    <div className="mv-5">
+    <div className="mv-5" data-testid="ny-slider">
       <div className="mb-2">{label}</div>
       <Slider
         className="ml-2"
