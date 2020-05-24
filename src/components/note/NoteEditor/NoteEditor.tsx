@@ -3,7 +3,7 @@ import React, { ChangeEvent } from 'react'
 import mangane from '../../../assets/mangane.svg'
 
 interface NoteEditorProps {
-  onChange?(e: ChangeEvent<HTMLElement>): void
+  onChange?(e: ChangeEvent<HTMLTextAreaElement>): void
 }
 
 export const NoteEditor: React.FC<NoteEditorProps> = ({onChange}) => {

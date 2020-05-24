@@ -8,7 +8,7 @@
     margin-top: size(6);
   }
 
-  > .actions {
+  > form > .actions {
     @include responsive(desktop) {
       display: flex;
       justify-content: space-between;

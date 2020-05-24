@@ -13,13 +13,19 @@ interface NotePasswordProps {
 export const NotePassword: React.FC<NotePasswordProps> = ({
   placeholder,
   label,
-  className
+  className,
+  onChange,
 }) => {
   return (
     <div className={`password-input-group ${className}`}>
       <label htmlFor="password">{label}</label>
       <div className="password-input">
-        <input type="text" id="password" placeholder={placeholder} />
+        <input
+          type="password"
+          id="password"
+          placeholder={placeholder}
+          onChange={onChange}
+        />
         <Icon path={mdiKey} color="#DFDFDF" className="icon" />
       </div>
     </div>

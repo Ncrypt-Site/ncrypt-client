@@ -1,5 +1,5 @@
 import './home.scss'
-import React from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { Hero } from '../../decorative/MainHero/MainHero'
 import { NoteEditor } from '../../note/NoteEditor/NoteEditor'
 import { NoteOptions } from '../../note/NoteOptions/NoteOptions'
@@ -9,18 +9,32 @@ import { mdiLock } from '@mdi/js'
 import Art from '../../../assets/art.svg'
 
 export const Home: React.FC = () => {
+  const [text, setText] = useState<string | null>(null)
+
+  const noteChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target
+    setText(textarea.value)
+    console.log(text)
+  }
+
+  const optionsChangeHandler = (valObject: object) => {
+    console.log(valObject)
+  }
+
   return (
     <div className="page-home">
       <Hero />
-      <NoteEditor />
-      <div className="actions">
-        <NoteOptions />
-        <NyButton>
-          <Icon path={mdiLock} size="1rem" />
-          Encrypt and send
-        </NyButton>
-      </div>
-      <img src={Art} alt="art" className="art hidden-mobile"/>
+      <form action="">
+        <NoteEditor onChange={noteChangeHandler} />
+        <div className="actions">
+          <NoteOptions onChange={optionsChangeHandler} />
+          <NyButton>
+            <Icon path={mdiLock} size="1rem" />
+            Encrypt and send
+          </NyButton>
+        </div>
+      </form>
+      <img src={Art} alt="art" className="art hidden-mobile" />
     </div>
   )
 }
