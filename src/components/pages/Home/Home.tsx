@@ -10,15 +10,15 @@ import Art from '../../../assets/art.svg'
 
 export const Home: React.FC = () => {
   const [text, setText] = useState<string | null>(null)
+  const [options, setOptions] = useState<object>({})
 
   const noteChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const textarea = e.target
     setText(textarea.value)
-    console.log(text)
   }
 
   const optionsChangeHandler = (valObject: object) => {
-    console.log(valObject)
+    setOptions(valObject)
   }
 
   return (

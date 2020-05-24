@@ -9,6 +9,19 @@ interface NoteOptionsProps {
   onChange?: (val: { [key: string]: string | number | boolean }) => void
 }
 
+const stepsArray = [0, 1, 3, 6, 12, 24, 48, 72, 168, 720]
+const stepsMarks = {
+  0: '0',
+  1: '1 h',
+  2: '3 h',
+  3: '6 h',
+  4: '12 h',
+  5: '24 h',
+  6: '2 d',
+  7: '3 d',
+  8: '7 d',
+  9: '1 m',
+}
 export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selfDestruct, setSelfDestruct] = useState(true)
@@ -39,7 +52,8 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
         selfDestruct: selfDestruct,
         password: password,
       })
-  })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selfDestruct, password, expire])
 
   return (
     <div className="note-options">
@@ -51,19 +65,8 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
       />
 
       <NySlider
-        stepsArray={[0, 1, 3, 6, 12, 24, 48, 72, 168, 720]}
-        marks={{
-          0: '0',
-          1: '1 h',
-          2: '3 h',
-          3: '6 h',
-          4: '12 h',
-          5: '24 h',
-          6: '2 d',
-          7: '3 d',
-          8: '7 d',
-          9: '1 m',
-        }}
+        stepsArray={stepsArray}
+        marks={stepsMarks}
         label="Expires in"
         onChange={onExpireChange}
       />
