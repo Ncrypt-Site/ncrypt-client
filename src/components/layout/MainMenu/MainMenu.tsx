@@ -3,12 +3,15 @@ import './main-menu.scss'
 import React from 'react'
 import Icon from '@mdi/react'
 import { mdiGithub } from '@mdi/js'
+import { NavLink } from 'react-router-dom'
 
 export const Menu: React.FC = () => {
   return (
     <ul className="menu">
       <li className="hidden-mobile">
-        <a href="#">About</a>
+        <NavLink  to="/about" href="/about">
+          About
+        </NavLink>
       </li>
       <li className="github">
         <a href="#">
@@ -16,7 +19,7 @@ export const Menu: React.FC = () => {
           Github
         </a>
       </li>
-      <li  className="hidden-mobile">
+      <li className="hidden-mobile">
         <a href="#">Hire US</a>
       </li>
     </ul>

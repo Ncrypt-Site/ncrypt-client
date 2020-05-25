@@ -1,7 +1,7 @@
 @import '../../../scss/parts/reasourses.scss';
 
 .page-home {
-  padding-bottom: size(6);
+  padding-bottom: size(8);
   position: relative;
 
   .btn {
@@ -24,7 +24,7 @@
   .art {
     position: absolute;
     right: -10%;
-    bottom: 0;
+    bottom: 5%;
     z-index: -1;
   }
 }

@@ -34,7 +34,7 @@ export const NySlider: React.FC<NySliderProps> = ({
         marks={marks}
         step={null}
         onChange={handleChange}
-        defaultValue={0}
+        defaultValue={1}
       />
     </div>
   )

@@ -1,5 +1,4 @@
-@import '../../../scss/parts/variables';
-@import '../../../scss/parts/functions';
+@import '../../../scss/parts/reasourses';
 
 .menu {
   display: flex;
@@ -12,10 +11,11 @@
   }
 
   > li {
-    margin-left: 48px;
+    margin-left: size(12);
 
     > a {
       color: $black;
+      display: inline-block;
       font-weight: 500;
 
       &:hover {
@@ -24,6 +24,11 @@
         path {
           fill: $primary-color !important;
         }
+      }
+
+      &.active {
+        color: $primary-color;
+        font-weight: bold;
       }
     }
 

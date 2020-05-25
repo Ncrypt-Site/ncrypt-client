@@ -24,15 +24,15 @@ const stepsMarks = {
 }
 export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selfDestruct, setSelfDestruct] = useState(true)
+  const [selfDestruct, setSelfDestruct] = useState(0)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [password, setPassword] = useState('')
-  const [expire, setExpire] = useState(0)
+  const [destructAfterOpening, setDestructAfterOpening] = useState(true)
 
   const onDestructSwitchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const checkbox = e.target
 
-    setSelfDestruct(!!checkbox.checked)
+    setDestructAfterOpening(!!checkbox.checked)
   }
 
   const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,18 +42,18 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   }
 
   const onExpireChange = (val: number) => {
-    setExpire(val)
+    setSelfDestruct(val)
   }
 
   useEffect(() => {
     if (onChange)
       onChange({
-        expire: expire,
-        selfDestruct: selfDestruct,
-        password: password,
+        destructAfterOpening,
+        selfDestruct,
+        password,
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selfDestruct, password, expire])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selfDestruct, password, destructAfterOpening])
 
   return (
     <div className="note-options">

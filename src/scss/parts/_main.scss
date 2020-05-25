@@ -1,0 +1,13 @@
+.single-page {
+  > .content {
+    margin-top: size(15);
+    line-height: 2rem;
+    color: lighten($black, 10);
+
+    > .title {
+      font-size: size(15);
+      font-weight: 200;
+      margin-bottom: size(8);
+    }
+  }
+}
