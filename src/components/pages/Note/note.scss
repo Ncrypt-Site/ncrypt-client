@@ -1,0 +1,19 @@
+@import '../../../scss/parts/reasourses.scss';
+
+.note-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .password-box {
+    position: absolute;
+    width: 400px;
+    max-width: 100%;
+
+    .btn {
+      width: 100%;
+      margin-top: size(4);
+    }
+  }
+}

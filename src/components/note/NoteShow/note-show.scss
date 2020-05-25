@@ -5,6 +5,11 @@
   display: flex;
   justify-content: center;
   margin-top: 24px;
+
+  &.blur {
+    filter: blur(8px);
+    opacity: 0.5;
+  }
 }
 
 .note-show {
