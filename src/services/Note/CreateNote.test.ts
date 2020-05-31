@@ -20,3 +20,7 @@ test('It create secure note', () => {
   expect(decryptedNote.Note).toBe(plainNote)
 })
 
+test('It throws an error if the note is empty', ()=>{
+  expect(function(){CreateNote("");})
+    .toThrow(new Error('Not can\'t be empty.'))
+})
