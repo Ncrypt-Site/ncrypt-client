@@ -5,7 +5,7 @@ export const Hero: React.FC = () => {
   return (
     <div className="main-hero">
       <div className="hero-text fz-1-2">
-        Send secure notes that will self-destruct after being read.
+        Send notes with ultimate security and privacy.
       </div>
 
       <div className="reasons">
@@ -14,13 +14,13 @@ export const Hero: React.FC = () => {
             <span role="img" aria-label="lock">
               🔒
             </span>{' '}
-            Encrypted with 256bit phrase
+            Military grade encryption (AES-256)
           </li>
           <li>
             <span role="img" aria-label="shield">
               🛡
             </span>{' '}
-            Encoded in client side protecting privacy and security
+            Client side encryption to protecting privacy and security.
           </li>
         </ul>
       </div>
