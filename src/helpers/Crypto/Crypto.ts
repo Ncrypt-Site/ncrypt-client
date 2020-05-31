@@ -22,7 +22,7 @@ export function encryptNote(note: string, key: string, iv: string): SecureNote {
 
   return {
     Key: CryptoJS.enc.Base64.stringify(key),
-    Iv: CryptoJS.enc.Base64.stringify(key),
+    Iv: CryptoJS.enc.Base64.stringify(iv),
     Note: encryptedNote.toString()
   }
 }
