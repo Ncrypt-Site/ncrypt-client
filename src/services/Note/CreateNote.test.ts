@@ -1,7 +1,7 @@
 import { CreateNote } from './CreateNote'
 import { decryptNote } from '../../helpers/Crypto/Crypto'
 
-test('It generate random string', () => {
+test('It create secure note', () => {
   // mock window.crypto (not sure the best approach but works)
   const crypto = require('crypto')
   // @ts-ignore
@@ -19,3 +19,4 @@ test('It generate random string', () => {
   const decryptedNote = decryptNote(n[0], note.Key, n[2])
   expect(decryptedNote.Note).toBe(plainNote)
 })
+
