@@ -21,3 +21,10 @@ test("It will open an encrypted note",()=>{
 
   expect(note.Note).toBe(message)
 })
+
+test("it will throw an error on an incorrect format note",()=>{
+  const malformedNote = "bad,format,note"
+
+  expect(function(){OpenNote(malformedNote,"bad key");})
+    .toThrow(new Error('Note data is invalid'))
+})
