@@ -1,5 +1,4 @@
 import * as CryptoJS from 'crypto-js'
-import { GenerateRandomString } from '../RandomString/RandomString'
 
 interface SecureNote {
   Key: string
@@ -11,9 +10,9 @@ interface Note {
   Note: string
 }
 
-export function encryptNote(note: string): SecureNote {
-  const key = CryptoJS.enc.Utf8.parse(GenerateRandomString(32))
-  const iv = CryptoJS.enc.Utf8.parse(GenerateRandomString(16))
+export function encryptNote(note: string, key: string, iv: string): SecureNote {
+   key = CryptoJS.enc.Utf8.parse(key)
+   iv = CryptoJS.enc.Utf8.parse(iv)
 
   const encryptedNote = CryptoJS.AES.encrypt(note, key, {
     mode: CryptoJS.mode.CTR,
