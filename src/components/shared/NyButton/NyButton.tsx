@@ -21,7 +21,7 @@ export const NyButton: React.FC<NyButtonProps> = (props) => {
   }
 
   return (
-    <button className={classes} {...props}>
+    <button className={classes}>
       {Loading}
       {props.children}
     </button>

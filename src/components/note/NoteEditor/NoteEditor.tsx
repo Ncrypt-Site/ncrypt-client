@@ -4,9 +4,13 @@ import mangane from '../../../assets/mangane.svg'
 
 interface NoteEditorProps {
   onChange?(e: ChangeEvent<HTMLTextAreaElement>): void
+  disabled?: boolean
 }
 
-export const NoteEditor: React.FC<NoteEditorProps> = ({onChange}) => {
+export const NoteEditor: React.FC<NoteEditorProps> = ({
+  onChange,
+  disabled,
+}) => {
   return (
     <div className="main-note">
       <div className="note-container">
@@ -14,6 +18,7 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({onChange}) => {
           <img src={mangane} alt="" />
         </div>
         <textarea
+          disabled={disabled}
           className="note-editor"
           placeholder="Enter Text"
           onChange={onChange}

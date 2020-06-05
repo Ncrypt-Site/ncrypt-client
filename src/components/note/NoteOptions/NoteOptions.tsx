@@ -5,7 +5,10 @@ import { NySlider } from '../../shared/NySlider/NySlider'
 
 interface NoteOptionsProps {
   // when options changes
-  onChange?: (val: { [key: string]: string | number | boolean }) => void
+  onChange?: (val: {
+    destructAfterOpening: boolean
+    selfDestruct: number
+  }) => void
 }
 
 const stepsArray = [0, 1, 3, 6, 12, 24, 48, 72, 168, 720]
@@ -23,7 +26,7 @@ const stepsMarks = {
 }
 export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selfDestruct, setSelfDestruct] = useState(0)
+  const [selfDestruct, setSelfDestruct] = useState(stepsArray[2])
 
   const [destructAfterOpening, setDestructAfterOpening] = useState(true)
 

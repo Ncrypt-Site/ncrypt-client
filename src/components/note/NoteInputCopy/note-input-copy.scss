@@ -1,0 +1,66 @@
+@import '../../../scss/parts/reasourses.scss';
+
+.note-input-copy {
+
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .label {
+    margin-bottom: size(2);
+  }
+
+  .input {
+    border: 1px solid $gray-300;
+    padding: size(3) size(12) size(3) size(3);
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 12px;
+    border-radius: size();
+    font-family: consolas, Raleway, monospace;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  }
+
+  .has-icon {
+    .input {
+      padding-left: size(12);
+    }
+  }
+
+  .main-icon {
+    position: absolute;
+    left: 10px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    path {
+      fill: $color-green !important;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    path {
+      fill: $gray-400 !important;
+    }
+
+    &:hover {
+      path {
+        fill: $gray-500 !important;
+      }
+    }
+  }
+}
