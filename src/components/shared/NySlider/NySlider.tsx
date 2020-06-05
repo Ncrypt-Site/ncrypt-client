@@ -1,6 +1,8 @@
 import './ny-slider.scss'
-import React from 'react'
-import Slider from 'rc-slider'
+import React, { useState } from 'react'
+import { Range } from 'react-range'
+import { mdiMenuUp } from '@mdi/js'
+import Icon from '@mdi/react'
 
 interface NySliderProps {
   onChange?(val: number): void
@@ -12,6 +14,7 @@ interface NySliderProps {
       | { style: any; label: string | JSX.Element }
   }
   label?: string
+  valIndex?: number
 }
 
 export const NySlider: React.FC<NySliderProps> = ({
@@ -19,22 +22,54 @@ export const NySlider: React.FC<NySliderProps> = ({
   onChange,
   marks,
   label,
+  valIndex,
 }) => {
-  const handleChange = (val: number) => {
-    if (onChange) onChange(stepsArray[val])
+  const [localVal, setLocalVal] = useState([valIndex || 0])
+
+  const handleChange = (val: number[]) => {
+    setLocalVal(val)
+    if (onChange) onChange(stepsArray[val[0]])
   }
 
   return (
-    <div className="mv-5" data-testid="ny-slider">
+    <div className="mv-5 ny-slider" data-testid="ny-slider">
       <div className="mb-2">{label}</div>
-      <Slider
-        className="ml-2"
+
+      <Range
+        step={1}
         min={0}
         max={stepsArray.length - 1}
-        marks={marks}
-        step={null}
+        values={localVal}
         onChange={handleChange}
-        defaultValue={1}
+        renderTrack={({ props, children }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+            }}
+            className="range-track"
+          >
+            {children}
+          </div>
+        )}
+        renderThumb={({ props, value }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+            }}
+            className="range-thumb"
+          >
+            <span
+              className={`thumb-value ${value === 0 ? 'first' : ''} ${
+                value === stepsArray.length - 1 ? 'last' : ''
+              }`}
+            >
+              <Icon path={mdiMenuUp} />
+              {marks[value]}
+            </span>
+          </div>
+        )}
       />
     </div>
   )
