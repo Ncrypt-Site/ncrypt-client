@@ -5,6 +5,7 @@
   .input-group {
     position: relative;
     display: flex;
+    width: 100%;
     align-items: center;
   }
 
@@ -19,6 +20,7 @@
     word-break: break-all;
     font-size: 12px;
     border-radius: size();
+    width: 100%;
     font-family: consolas, Raleway, monospace;
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
   }

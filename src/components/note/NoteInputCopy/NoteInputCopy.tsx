@@ -3,6 +3,7 @@ import React from 'react'
 import { mdiContentCopy } from '@mdi/js'
 import Icon from '@mdi/react'
 import { CopyString } from '../../../helpers/CopyString/CopyString'
+import { toast } from 'react-toastify'
 
 interface NoteInputCopyProps {
   value: string
@@ -19,6 +20,15 @@ export const NoteInputCopy: React.FC<NoteInputCopyProps> = ({
 }) => {
   const onCopy = () => {
     CopyString(value)
+    toast.dark(' Copied to clipboard', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 
   return (
