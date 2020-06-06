@@ -3,7 +3,7 @@ import React, { MouseEvent } from 'react'
 import loadingGrid from '../../../assets/grid.svg'
 
 interface NyButtonProps {
-  onClick?(e: MouseEvent<HTMLElement>): void
+  onClick?(e: MouseEvent<HTMLButtonElement>): void
   color?: 'primary' | undefined
   className?: string
   loading?: boolean
@@ -21,7 +21,7 @@ export const NyButton: React.FC<NyButtonProps> = (props) => {
   }
 
   return (
-    <button className={classes}>
+    <button className={classes} onClick={props.onClick}>
       {Loading}
       {props.children}
     </button>

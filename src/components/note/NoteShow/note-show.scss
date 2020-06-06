@@ -1,10 +1,15 @@
 @import '../../../scss/parts/reasourses';
 
+.main-note {
+  width: 100%;
+}
+
 .note-container {
   position: relative;
   display: flex;
   justify-content: center;
   margin-top: 24px;
+  width: 100%;
 
   &.blur {
     filter: blur(8px);

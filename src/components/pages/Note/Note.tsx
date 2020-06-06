@@ -1,16 +1,41 @@
 import './note.scss'
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, useEffect } from 'react'
 import { NoteShow } from '../../note/NoteShow/NoteShow'
 import { NotePassword } from '../../note/NotePassword/NotePassword'
 import { NyButton } from '../../shared/NyButton/NyButton'
 import Icon from '@mdi/react'
 import { mdiLock } from '@mdi/js'
+import axios from 'axios'
+import { useParams } from 'react-router'
+import { OpenNote } from '../../../services/Note/OpenNote'
+import {
+  useAsync,
+  IfPending,
+  IfFulfilled,
+  IfRejected,
+  PromiseFn,
+} from 'react-async'
 
 interface NoteProps {}
 
+const getNote: PromiseFn<{ Data: { note: string } }> = ({ id }) =>
+  axios
+    .get(`https://api.ncrypt.site/api/v1/note/${id}`)
+    .then((res) => Promise.resolve(res))
+    .then(({ data }) => data)
+    .catch((err) => {
+      return Promise.reject(err)
+    })
+
 export const Note: React.FC<NoteProps> = () => {
+  const { id } = useParams()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState('')
+  const [text, setText] = useState<string | null | undefined>(null)
+  const [note, setNote] = useState<string>('')
+  const state = useAsync(getNote, { id })
+  const { data, error } = state
 
   const passwordHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target
@@ -18,28 +43,64 @@ export const Note: React.FC<NoteProps> = () => {
     setPassword(input.value)
   }
 
+  useEffect(() => {
+    if (data) {
+      // todo: make it better
+      if (data && data.Data && data.Data.note) {
+        console.log(data.Data.note)
+        setNote(data.Data.note)
+      }
+    }
+
+    if (error) {
+      console.error(error)
+    }
+  }, [error, data])
+
+  const clickHandler = () => {
+    if (password) {
+      const { Note } = OpenNote(note, password)
+      setText(Note)
+    }
+  }
+
   return (
-    <div className="note-page">
-      <NoteShow blur>
-        This HTML file is a template. If you open it directly in the browser,
-        you will see an empty page. You can add webfonts, meta tags, or
-        analytics to this file. The build step will place the bundled scripts
-        into the tag. To begin the development, run `npm start` or `yarn start`.
-        To create a production bundle, use `npm run build` or `yarn build`.
-      </NoteShow>
+    <>
+      <IfPending state={state}>loading...</IfPending>
+      <IfRejected state={state}>error</IfRejected>
+      <IfFulfilled state={state}>
+        <div className="note-page">
+          <NoteShow blur={!text}>
+            {text && text}
+            {!text &&
+              `
+          Lorem ipsum dolor, sit amet consectetur adipisicing 
+          elit. Tenetur, optio ab, cumque asperiores, amet voluptates assumenda 
+          labore expedita architecto quaerat consectetur sed repudiandae eligendi? Nisi
+           perferendis quia similique labore excepturi.
+          `}
+          </NoteShow>
 
-      <div className="password-box">
-        <NotePassword
-          placeholder="Enter Password"
-          label="Enter the password to open the Note"
-          onChange={passwordHandler}
-        />
+          {!text && (
+            <div className="password-box">
+              <NotePassword
+                placeholder="Enter Password"
+                label="Enter the password to open the Note"
+                onChange={passwordHandler}
+              />
 
-        <NyButton>
-          <Icon path={mdiLock} size="1rem" style={{ marginRight: '0.25rem' }} />
-          Open Note
-        </NyButton>
-      </div>
-    </div>
+              <NyButton onClick={clickHandler} loading={loading}>
+                <Icon
+                  path={mdiLock}
+                  size="1rem"
+                  style={{ marginRight: '0.25rem' }}
+                />
+                Open Note
+              </NyButton>
+            </div>
+          )}
+        </div>
+      </IfFulfilled>
+    </>
   )
 }
