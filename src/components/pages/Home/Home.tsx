@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import './home.scss'
 import React, { useState, ChangeEvent, FormEvent } from 'react'
+import { Redirect } from 'react-router'
 import { Hero } from '../../decorative/MainHero/MainHero'
 import { NoteEditor } from '../../note/NoteEditor/NoteEditor'
 import { NoteOptions } from '../../note/NoteOptions/NoteOptions'
@@ -10,7 +11,7 @@ import { mdiLock } from '@mdi/js'
 import Art from '../../../assets/art.svg'
 import axios, { AxiosResponse } from 'axios'
 import { CreateNote } from '../../../services/Note/CreateNote'
-import { NoteSent } from '../../home/NoteSent/NoteSent'
+import { toast } from 'react-toastify'
 
 interface NoteOptionsInterface {
   message: string
@@ -83,6 +84,7 @@ export const Home: React.FC = () => {
               const { data } = response
               setNoteId(data.Data.id)
               setNoteUrl(data.Data.url)
+              toast('😎 Secure Note created')
             }
           })
           .finally(() => {
@@ -93,7 +95,14 @@ export const Home: React.FC = () => {
   }
 
   if (noteUrl !== null && key !== null)
-    return <NoteSent noteKey={key} noteUrl={noteUrl} />
+    return (
+      <Redirect
+        to={{
+          pathname: '/sent',
+          state: { noteUrl, key },
+        }}
+      />
+    )
   else
     return (
       <div className="page-home">

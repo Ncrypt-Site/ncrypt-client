@@ -18,6 +18,9 @@
   justify-content: center;
   align-items: center;
   transition: all 0.1s linear;
+  &:focus {
+    border: 2px solid $primary-color;
+  }
 }
 
 .thumb-value {

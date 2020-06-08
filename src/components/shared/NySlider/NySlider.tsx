@@ -37,7 +37,7 @@ export const NySlider: React.FC<NySliderProps> = ({
 
       <Range
         step={1}
-        min={0}
+        min={1}
         max={stepsArray.length - 1}
         values={localVal}
         onChange={handleChange}

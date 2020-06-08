@@ -8,6 +8,7 @@ import { mdiLock } from '@mdi/js'
 import axios from 'axios'
 import { useParams } from 'react-router'
 import { OpenNote } from '../../../services/Note/OpenNote'
+import { toast } from 'react-toastify'
 import {
   useAsync,
   IfPending,
@@ -59,8 +60,16 @@ export const Note: React.FC<NoteProps> = () => {
 
   const clickHandler = () => {
     if (password) {
-      const { Note } = OpenNote(note, password)
-      setText(Note)
+      try {
+        const n = OpenNote(note, password)
+        setText(n.Note)
+        toast('🗝 Note Opened successfully')
+      } catch (err) {
+        toast.error('It seems that password is not matched')
+        console.error(err)
+      }
+    }else {
+      toast.error('Password needed!')
     }
   }
 

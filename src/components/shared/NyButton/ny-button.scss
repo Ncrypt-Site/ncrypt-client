@@ -1,9 +1,10 @@
 @import '../../../scss/parts/reasourses.scss';
 
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   padding: 0 size(8);
   cursor: pointer;
   border: 0;

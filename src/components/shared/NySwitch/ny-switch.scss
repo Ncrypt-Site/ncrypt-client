@@ -62,4 +62,9 @@
   & [disabled]:not([disabled='false']) + .switcher {
     background: #ccc !important;
   }
+
+  
+  &:focus {
+    outline: 1px dashed rgba(0,0,0,0.1);
+  }
 }

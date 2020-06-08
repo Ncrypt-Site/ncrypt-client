@@ -19,9 +19,16 @@ html {
 
 a {
   text-decoration: none;
+
+  &:focus {
+    outline: 1px dashed rgba($primary-color, 0.1);
+  }
 }
 
 svg {
   width: 1.5rem;
 }
 
+*:focus {
+  outline: none
+}

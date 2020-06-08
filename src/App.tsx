@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <MainLayout Content={Index} />
-      <ToastContainer />
+      <ToastContainer position="top-center" />
     </BrowserRouter>
   )
 }

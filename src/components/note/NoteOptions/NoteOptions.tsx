@@ -11,9 +11,8 @@ interface NoteOptionsProps {
   }) => void
 }
 
-const stepsArray = [0, 1, 3, 6, 12, 24, 48, 72, 168, 720]
+const stepsArray = [1, 3, 6, 12, 24, 48, 72, 168, 720]
 const stepsMarks = {
-  0: 'immediate',
   1: '1 hour',
   2: '3 hours',
   3: '6 hours',
