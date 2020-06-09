@@ -20,7 +20,10 @@ export const Menu: React.FC = () => {
         </a>
       </li>
       <li className="hidden-mobile">
-        <a href="#">Hire US</a>
+        <a href="mailto:devnull@ncrypt.site">Hire US</a>
+      </li>
+      <li className="hidden-mobile">
+        <a href="https://www.patreon.com/ph4r5h4d" target="_blank" rel="noopener noreferrer">Support US</a>
       </li>
     </ul>
   )
