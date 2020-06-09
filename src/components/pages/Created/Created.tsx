@@ -1,4 +1,4 @@
-import './sent.scss'
+import './created.scss'
 import React from 'react'
 import { NoteInputCopy } from '../../note/NoteInputCopy/NoteInputCopy'
 import { mdiLink, mdiKey } from '@mdi/js'
@@ -10,7 +10,7 @@ interface SentProps {
   children: any
 }
 
-export const Sent: React.FC<SentProps> = (props) => {
+export const Created: React.FC<SentProps> = (props) => {
   if (props.location && props.location.state) {
     const { noteUrl, key } = props.location.state
 
@@ -22,8 +22,9 @@ export const Sent: React.FC<SentProps> = (props) => {
               🎊
             </span>
             Hooray!! <br />
-            Note created now you can send the link to anyone <br />
-            You should also Send them the password
+            Your secure note is ready. <br /> <br />
+            You need to share the password, and for security reasons,
+            don't share note URL and password through the same medium.
           </p>
           <NoteInputCopy value={noteUrl} label="Note URL" icon={mdiLink} />
 
