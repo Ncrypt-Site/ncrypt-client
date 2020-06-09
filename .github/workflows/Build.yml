@@ -1,0 +1,32 @@
+name: nCrypt Client Build
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Logging into docker hub
+        run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login --username ph4r5h4d --password-stdin
+      - name: Build docker image
+        run: docker build . --file Dockerfile --tag ncrypt-client
+      - name: Tag and push
+        run: |
+          IMAGE=ncryptdotsite/ncrypt-client
+
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          echo $IMAGE
+          echo $VERSION
+
+          docker tag ncrypt-client $IMAGE:$VERSION
+          docker tag ncrypt-client $IMAGE:latest
+
+          docker push $IMAGE:$VERSION
+          docker push $IMAGE:latest
