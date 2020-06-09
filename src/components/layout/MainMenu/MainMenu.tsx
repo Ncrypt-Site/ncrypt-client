@@ -14,7 +14,7 @@ export const Menu: React.FC = () => {
         </NavLink>
       </li>
       <li className="github">
-        <a href="#">
+        <a href="https://github.com/Ncrypt-Site" target="_blank">
           <Icon size={1} path={mdiGithub} className="icon" color="#333" />
           Github
         </a>
