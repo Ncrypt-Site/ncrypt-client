@@ -98,7 +98,7 @@ export const Home: React.FC = () => {
     return (
       <Redirect
         to={{
-          pathname: '/sent',
+          pathname: '/note',
           state: { noteUrl, key },
         }}
       />
