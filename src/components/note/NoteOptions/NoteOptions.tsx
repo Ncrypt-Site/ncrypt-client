@@ -32,7 +32,7 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   const onDestructSwitchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const checkbox = e.target
 
-    setDestructAfterOpening(!!checkbox.checked)
+    setDestructAfterOpening(checkbox.checked)
   }
 
   // const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
