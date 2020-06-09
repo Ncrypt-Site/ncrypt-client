@@ -10,7 +10,6 @@ export const Header: React.FC = () => {
       <Link to="/" href="/">
         <img src={Logo} alt="nyCrypt" />
       </Link>
-
       <Menu />
     </header>
   )
