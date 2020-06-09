@@ -31,10 +31,10 @@ interface ServerData {
 const postNote = (options: NoteOptionsInterface) =>
   axios
     .post(`https://api.ncrypt.site/api/v1/note`, options)
-    .then((res) => {
+    .then((res: any) => {
       return Promise.resolve(res)
     })
-    .catch((err) => {
+    .catch((err: any) => {
       return Promise.reject(err)
     })
 
