@@ -68,7 +68,7 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
         marks={stepsMarks}
         label="Expires in"
         onChange={onExpireChange}
-        valIndex={1}
+        valIndex={0}
       />
     </div>
   )
