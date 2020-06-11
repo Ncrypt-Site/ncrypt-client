@@ -13,15 +13,15 @@ interface NoteOptionsProps {
 
 const stepsArray = [1, 3, 6, 12, 24, 48, 72, 168, 720]
 const stepsMarks = {
-  1: '1 hour',
-  2: '3 hours',
-  3: '6 hours',
-  4: '12 hours',
-  5: '24 hours',
-  6: '2 days',
-  7: '3 days',
-  8: '7 days',
-  9: '1 months',
+  0: '1 hour',
+  1: '3 hours',
+  2: '6 hours',
+  3: '12 hours',
+  4: '24 hours',
+  5: '2 days',
+  6: '3 days',
+  7: '7 days',
+  8: '1 months',
 }
 export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
