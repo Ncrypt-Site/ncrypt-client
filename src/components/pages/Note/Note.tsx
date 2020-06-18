@@ -5,7 +5,7 @@ import { NotePassword } from '../../note/NotePassword/NotePassword'
 import { NyButton } from '../../shared/NyButton/NyButton'
 import Icon from '@mdi/react'
 import { mdiLock } from '@mdi/js'
-import axios from 'axios'
+import axios,{AxiosResponse} from 'axios'
 import { useParams } from 'react-router'
 import { OpenNote } from '../../../services/Note/OpenNote'
 import { toast } from 'react-toastify'
@@ -34,7 +34,7 @@ export const Note: React.FC<NoteProps> = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState('')
-  const [errorCode, setErrorCode] = useState<number | null>(null)
+  const [errorResponse, setErrorResponse] = useState<AxiosResponse | null>(null)
   const [text, setText] = useState<string | null | undefined>(null)
   const [note, setNote] = useState<string>('')
   const state = useAsync(getNote, { id })
@@ -56,7 +56,7 @@ export const Note: React.FC<NoteProps> = () => {
 
     if (error) {
       // @ts-ignore
-      setErrorCode(error?.response?.data?.Code)
+      setErrorResponse(error.response)
 
       console.error(error)
     }
@@ -81,7 +81,7 @@ export const Note: React.FC<NoteProps> = () => {
     <>
       <IfPending state={state}>loading...</IfPending>
       <IfRejected state={state}>
-        <ErrorShow status={errorCode} />
+        <ErrorShow status={errorResponse?.data.Code} />
       </IfRejected>
       <IfFulfilled state={state}>
         <div className="note-page">
