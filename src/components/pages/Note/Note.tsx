@@ -17,6 +17,7 @@ import {
   PromiseFn,
 } from 'react-async'
 import { NoteError } from '../../note/NoteError/NoteError'
+import { NoteLoading } from '../../note/NoteLoading/NoteLoading'
 
 interface NoteProps {}
 
@@ -79,7 +80,9 @@ export const Note: React.FC<NoteProps> = () => {
 
   return (
     <>
-      <IfPending state={state}>loading...</IfPending>
+      <IfPending state={state}>
+        <NoteLoading />
+      </IfPending>
       <IfRejected state={state}>
         <NoteError response={errorResponse} />
       </IfRejected>
