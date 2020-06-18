@@ -16,7 +16,7 @@ import {
   IfRejected,
   PromiseFn,
 } from 'react-async'
-import { ErrorShow } from '../../errors/ErrorShow'
+import { NoteError } from '../../note/NoteError/NoteError'
 
 interface NoteProps {}
 
@@ -81,7 +81,7 @@ export const Note: React.FC<NoteProps> = () => {
     <>
       <IfPending state={state}>loading...</IfPending>
       <IfRejected state={state}>
-        <ErrorShow status={errorResponse?.data.Code} />
+        <NoteError response={errorResponse} />
       </IfRejected>
       <IfFulfilled state={state}>
         <div className="note-page">
