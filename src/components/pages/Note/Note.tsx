@@ -1,14 +1,5 @@
 import './note.scss'
 import React, { useState, ChangeEvent, useEffect } from 'react'
-import { NoteShow } from '../../note/NoteShow/NoteShow'
-import { NotePassword } from '../../note/NotePassword/NotePassword'
-import { NyButton } from '../../shared/NyButton/NyButton'
-import Icon from '@mdi/react'
-import { mdiLock } from '@mdi/js'
-import axios,{AxiosResponse} from 'axios'
-import { useParams } from 'react-router'
-import { OpenNote } from '../../../services/Note/OpenNote'
-import { toast } from 'react-toastify'
 import {
   useAsync,
   IfPending,
@@ -16,6 +7,15 @@ import {
   IfRejected,
   PromiseFn,
 } from 'react-async'
+import axios,{AxiosResponse} from 'axios'
+import Icon from '@mdi/react'
+import { toast } from 'react-toastify'
+import { mdiLock } from '@mdi/js'
+import { useParams } from 'react-router'
+import { NoteShow } from '../../note/NoteShow/NoteShow'
+import { NotePassword } from '../../note/NotePassword/NotePassword'
+import { NyButton } from '../../shared/NyButton/NyButton'
+import { OpenNote } from '../../../services/Note/OpenNote'
 import { NoteError } from '../../note/NoteError/NoteError'
 import { NoteLoading } from '../../note/NoteLoading/NoteLoading'
 
