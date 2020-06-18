@@ -16,6 +16,7 @@ import {
   IfRejected,
   PromiseFn,
 } from 'react-async'
+import { ErrorShow } from '../../errors/ErrorShow'
 
 interface NoteProps {}
 
@@ -33,6 +34,7 @@ export const Note: React.FC<NoteProps> = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState('')
+  const [errorCode, setErrorCode] = useState<number | null>(null)
   const [text, setText] = useState<string | null | undefined>(null)
   const [note, setNote] = useState<string>('')
   const state = useAsync(getNote, { id })
@@ -48,12 +50,14 @@ export const Note: React.FC<NoteProps> = () => {
     if (data) {
       // todo: make it better
       if (data && data.Data && data.Data.note) {
-        console.log(data.Data.note)
         setNote(data.Data.note)
       }
     }
 
     if (error) {
+      // @ts-ignore
+      setErrorCode(error?.response?.data?.Code)
+
       console.error(error)
     }
   }, [error, data])
@@ -68,7 +72,7 @@ export const Note: React.FC<NoteProps> = () => {
         toast.error('It seems that password is not matched')
         console.error(err)
       }
-    }else {
+    } else {
       toast.error('Password needed!')
     }
   }
@@ -76,7 +80,9 @@ export const Note: React.FC<NoteProps> = () => {
   return (
     <>
       <IfPending state={state}>loading...</IfPending>
-      <IfRejected state={state}>error</IfRejected>
+      <IfRejected state={state}>
+        <ErrorShow status={errorCode} />
+      </IfRejected>
       <IfFulfilled state={state}>
         <div className="note-page">
           <NoteShow blur={!text}>

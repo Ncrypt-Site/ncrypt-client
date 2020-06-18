@@ -1,0 +1,13 @@
+.error-show {
+  text-align: center;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .error-image {
+    max-width: 300px;
+    display: inline-block;
+  }
+}
