@@ -78,7 +78,7 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
         />
       </div>
 
-      <ReactTooltip effect="solid" />
+      <ReactTooltip effect="solid" type="light" />
     </div>
   )
 }
