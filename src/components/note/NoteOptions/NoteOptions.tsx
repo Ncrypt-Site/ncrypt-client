@@ -2,7 +2,7 @@ import './note-options.scss'
 import React, { ChangeEvent, useState, useEffect } from 'react'
 import { NySwitch } from '../../shared/NySwitch/NySwitch'
 import { NySlider } from '../../shared/NySlider/NySlider'
-
+import ReactTooltip from 'react-tooltip'
 interface NoteOptionsProps {
   // when options changes
   onChange?: (val: {
@@ -35,12 +35,6 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
     setDestructAfterOpening(checkbox.checked)
   }
 
-  // const onPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const input = e.target
-
-  //   setPassword(input.value)
-  // }
-
   const onExpireChange = (val: number) => {
     setSelfDestruct(val)
   }
@@ -57,19 +51,34 @@ export const NoteOptions: React.FC<NoteOptionsProps> = ({ onChange }) => {
   return (
     <div className="note-options">
       <h3 className="title hidden-mobile">Options</h3>
-      <NySwitch
-        defaultChecked
-        label="Self-destructs after reading"
-        onChange={onDestructSwitchChange}
-      />
+      <div
+        data-tip="If you want the note to be destroyed once anyone opens the link"
+        data-type="info"
+        data-place="bottom"
+      >
+        <NySwitch
+          defaultChecked
+          label="Self-destructs after reading"
+          onChange={onDestructSwitchChange}
+        />
+      </div>
 
-      <NySlider
-        stepsArray={stepsArray}
-        marks={stepsMarks}
-        label="Expires in"
-        onChange={onExpireChange}
-        valIndex={0}
-      />
+      <div
+        className="mv-5"
+        data-tip="The time that this note is available"
+        data-type="info"
+        data-place="bottom"
+      >
+        <NySlider
+          stepsArray={stepsArray}
+          marks={stepsMarks}
+          label="Expires in"
+          onChange={onExpireChange}
+          valIndex={0}
+        />
+      </div>
+
+      <ReactTooltip effect="solid" />
     </div>
   )
 }

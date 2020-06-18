@@ -35,7 +35,7 @@ export const NySlider: React.FC<NySliderProps> = ({
   },[localVal, onChange, stepsArray])
 
   return (
-    <div className="mv-5 ny-slider" data-testid="ny-slider">
+    <div className="ny-slider" data-testid="ny-slider">
       <div className="mb-2">{label}</div>
 
       <Range
