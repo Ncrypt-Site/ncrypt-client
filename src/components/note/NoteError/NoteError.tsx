@@ -10,10 +10,9 @@ export const NoteError: React.FC<NoteErrorProps> = ({ response }) => {
   console.log(response)
   return (
     <div className="note-error">
-      <h1>Error {response?.data.Code}</h1>
-      <p className="message">{response?.data.Message}</p>
+      <h1>Ooops, an Alien stole your note...</h1>
       <p className="mv-5">
-        The note you are looking for not found, or probably destroyed
+        Your note no longer lives :(
       </p>
       <img className="error-image" src={errorArt} alt="error" />
     </div>
