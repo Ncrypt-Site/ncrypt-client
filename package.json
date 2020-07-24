@@ -57,10 +57,5 @@
   },
   "devDependencies": {
     "prettier": "^2.0.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
